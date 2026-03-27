@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DealIQ — Smart CRM for Real Estate Professionals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#060A10;--bg2:#0D1117;--bg3:#080D14;--border:#1E293B;--border2:#334155;--blue:#38BDF8;--green:#4ADE80;--orange:#FB923C;--red:#F87171;--purple:#C084FC;--text:#F1F5F9;--text2:#CBD5E1;--text3:#94A3B8;--text4:#64748B;--text5:#475569;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,16,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 48px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Bebas Neue',display;font-size:26px;letter-spacing:3px;color:var(--text);}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{color:var(--text4);font-size:14px;text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;gap:10px;}
+.btn-ghost{background:none;border:1px solid var(--border2);border-radius:8px;color:var(--text3);padding:9px 20px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
+.btn-primary{background:linear-gradient(135deg,#38BDF8,#0284C7);border:none;border-radius:8px;color:#080D14;padding:9px 22px;font-size:13px;font-weight:800;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s;}
+.btn-primary:hover{opacity:.9;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:6px 16px;font-size:12px;color:var(--blue);font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:28px;}
+.hero h1{font-family:'Bebas Neue',display;font-size:clamp(60px,10vw,110px);letter-spacing:4px;line-height:.95;margin-bottom:24px;background:linear-gradient(135deg,#F1F5F9 0%,#94A3B8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero h1 span{background:linear-gradient(135deg,#38BDF8,#0284C7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:clamp(16px,2vw,20px);color:var(--text3);max-width:600px;line-height:1.7;margin-bottom:40px;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+.btn-hero{background:linear-gradient(135deg,#38BDF8,#0284C7);border:none;border-radius:10px;color:#080D14;padding:16px 36px;font-size:16px;font-weight:800;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.btn-hero:hover{transform:translateY(-2px);}
+.btn-hero-ghost{background:none;border:1px solid var(--border2);border-radius:10px;color:var(--text2);padding:16px 36px;font-size:16px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.btn-hero-ghost:hover{border-color:var(--blue);color:var(--blue);}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Bebas Neue',display;font-size:40px;letter-spacing:2px;color:var(--blue);}
+.stat-label{font-size:12px;color:var(--text5);font-family:'DM Mono',monospace;letter-spacing:1px;margin-top:2px;}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);pointer-events:none;}
+
+/* ── PROFILES ── */
+.section{padding:100px 48px;max-width:1200px;margin:0 auto;}
+.section-label{font-size:11px;letter-spacing:3px;color:var(--blue);font-family:'DM Mono',monospace;margin-bottom:12px;text-align:center;}
+.section-title{font-family:'Bebas Neue',display;font-size:clamp(40px,6vw,64px);letter-spacing:3px;text-align:center;margin-bottom:16px;}
+.section-sub{font-size:17px;color:var(--text3);text-align:center;max-width:560px;margin:0 auto 64px;line-height:1.7;}
+.profiles{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.profile-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px;transition:all .3s;position:relative;overflow:hidden;}
+.profile-card:hover{border-color:var(--border2);transform:translateY(-4px);}
+.profile-card.wholesaler{border-top:3px solid var(--blue);}
+.profile-card.realtor{border-top:3px solid var(--green);}
+.profile-icon{font-size:48px;margin-bottom:20px;}
+.profile-title{font-family:'Bebas Neue',display;font-size:36px;letter-spacing:2px;margin-bottom:8px;}
+.profile-sub{font-size:15px;color:var(--text3);margin-bottom:28px;line-height:1.6;}
+.feature-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.feature-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text3);}
+.feature-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:7px;}
+.profile-btn{width:100%;border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.profile-btn:hover{opacity:.9;transform:translateY(-1px);}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px;}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px;}
+.feature-card-icon{font-size:28px;margin-bottom:14px;}
+.feature-card-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.feature-card-desc{font-size:14px;color:var(--text4);line-height:1.65;}
+
+/* ── HOW IT WORKS ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
+.step{text-align:center;padding:32px 20px;}
+.step-num{width:48px;height:48px;border-radius:50%;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Bebas Neue',display;font-size:22px;color:var(--blue);}
+.step-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--text4);line-height:1.6;}
+
+/* ── TESTIMONIALS ── */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.testimonial{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px;}
+.testimonial-text{font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;}
+.testimonial-name{font-size:14px;font-weight:600;color:var(--text);}
+.testimonial-role{font-size:12px;color:var(--text4);}
+
+/* ── PRICING ── */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:32px;position:relative;}
+.price-card.featured{border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.04);}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;font-size:11px;font-weight:800;padding:4px 16px;border-radius:20px;font-family:'DM Mono',monospace;white-space:nowrap;}
+.price-tier{font-size:11px;letter-spacing:2px;color:var(--text4);font-family:'DM Mono',monospace;margin-bottom:8px;}
+.price-amount{font-family:'Bebas Neue',display;font-size:52px;letter-spacing:2px;color:var(--text);margin-bottom:4px;}
+.price-amount span{font-size:20px;color:var(--text4);}
+.price-period{font-size:13px;color:var(--text4);margin-bottom:24px;}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.price-features li{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text3);}
+.price-features li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;}
+.price-btn{width:100%;border:none;border-radius:8px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(2,132,199,.08));border:1px solid rgba(56,189,248,.2);border-radius:20px;padding:80px 48px;text-align:center;margin:0 48px 100px;}
+.cta-banner h2{font-family:'Bebas Neue',display;font-size:clamp(36px,6vw,64px);letter-spacing:3px;margin-bottom:16px;}
+.cta-banner p{font-size:17px;color:var(--text3);margin-bottom:36px;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Bebas Neue',display;font-size:22px;letter-spacing:3px;}
+.footer-logo span{color:var(--blue);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:var(--text5);font-size:13px;text-decoration:none;}
+.footer-copy{font-size:12px;color:var(--text5);}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,.5);}
+.modal-header{padding:28px 28px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.modal-body{padding:28px;}
+.modal-close{background:none;border:none;color:var(--text4);cursor:pointer;font-size:22px;}
+.form-group{margin-bottom:16px;}
+.form-label{display:block;font-size:11px;font-family:'DM Mono',monospace;color:var(--text4);letter-spacing:1px;margin-bottom:8px;}
+.form-input{width:100%;background:#090E16;border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+.form-input:focus{border-color:var(--blue);}
+.form-error{color:var(--red);font-size:13px;margin-top:10px;}
+.form-success{color:var(--green);font-size:13px;margin-top:10px;}
+.modal-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px;}
+.modal-tab{flex:1;background:none;border:none;padding:12px;font-size:13px;cursor:pointer;font-family:'DM Mono',monospace;color:var(--text4);border-bottom:2px solid transparent;transition:all .2s;}
+.modal-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.profile-select{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.profile-option{border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;text-align:center;transition:all .2s;}
+.profile-option:hover{border-color:var(--border2);}
+.profile-option.selected-w{border-color:var(--blue);background:rgba(56,189,248,.06);}
+.profile-option.selected-r{border-color:var(--green);background:rgba(74,222,128,.06);}
+.profile-option-icon{font-size:28px;margin-bottom:8px;}
+.profile-option-title{font-size:13px;font-weight:700;color:var(--text);}
+.profile-option-sub{font-size:11px;color:var(--text4);margin-top:3px;}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border);}
+.divider span{font-size:12px;color:var(--text5);}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .section{padding:60px 20px;}
+  .profiles{grid-template-columns:1fr;}
+  .features-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .testimonials{grid-template-columns:1fr;}
+  .pricing{grid-template-columns:1fr;}
+  .cta-banner{margin:0 20px 60px;padding:48px 24px;}
+  footer{flex-direction:column;gap:20px;text-align:center;padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DEAL<span>IQ</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <div class="nav-cta">
+    <button class="btn-ghost" onclick="openModal('login')">Log in</button>
+    <button class="btn-primary" onclick="openModal('signup')">Get started free</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge">⚡ AI-POWERED REAL ESTATE CRM</div>
+  <h1>CLOSE MORE<br/><span>DEALS</span><br/>FASTER</h1>
+  <p>The only CRM built specifically for wholesalers and realtors — with AI that scores leads, drafts messages, and tells you exactly who to call next.</p>
+  <div class="hero-cta">
+    <button class="btn-hero" onclick="openModal('signup')">Start free today →</button>
+    <button class="btn-hero-ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">See how it works</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">2.4X</div><div class="stat-label">More deals closed</div></div>
+    <div class="stat"><div class="stat-num">60%</div><div class="stat-label">Less time on admin</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">AI works for you</div></div>
+    <div class="stat"><div class="stat-num">$0</div><div class="stat-label">To get started</div></div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<div style="max-width:1200px;margin:0 auto;padding:0 48px 100px;" id="features">
+  <div class="section-label">BUILT FOR YOU</div>
+  <h2 class="section-title" style="margin-bottom:16px;">Pick your path</h2>
+  <p class="section-sub">DealIQ adapts to how you work. Same powerful platform, two different experiences.</p>
+  <div class="profiles">
+    <div class="profile-card wholesaler">
+      <div class="profile-icon">🏚</div>
+      <div class="profile-title" style="color:#38BDF8;">WHOLESALER</div>
+      <div class="profile-sub">Find distressed properties, build your cash buyer list, and close deals fast — with AI doing the heavy lifting.</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>AI scores leads by equity, tax lien, vacancy & distress</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>MAO calculator — ARV × 70% minus real rehab costs</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Outbound SMS with DNC scrubbing & drip campaigns</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Cold caller intake form — leads flow in automatically</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Street View auto-loads in every lead profile</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>AI drafts personalized SMS for every seller conversation</div>
+      </div>
+      <button class="profile-btn" style="background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;" onclick="openSignupWithProfile('wholesaler')">Start as Wholesaler →</button>
+    </div>
+    <div class="profile-card realtor">
+      <div class="profile-icon">🏡</div>
+      <div class="profile-title" style="color:#4ADE80;">REALTOR</div>
+      <div class="profile-sub">Manage your listings pipeline, nurture your sphere of influence, and never let a hot lead go cold again.</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Listing pipeline — New → Showing → Offer → Closed</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>AI scores leads by motivation, timeline & price sensitivity</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Comps panel with AI list price recommendation</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Sphere of influence drip campaigns</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Open house follow-up sequences</div>
+        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>GCI tracker and commission pipeline dashboard</div>
+      </div>
+      <button class="profile-btn" style="background:linear-gradient(135deg,#4ADE80,#16A34A);color:#080D14;" onclick="openSignupWithProfile('realtor')">Start as Realtor →</button>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+    <div class="section-label">CORE FEATURES</div>
+    <h2 class="section-title">Everything you need.<br/>Nothing you don't.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon">⚡</div>
+        <div class="feature-card-title">AI Lead Scoring</div>
+        <div class="feature-card-desc">Every lead gets an automated score based on motivation signals, distress indicators, and conversation history. Hot leads get flagged instantly.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">💬</div>
+        <div class="feature-card-title">AI SMS Drafting</div>
+        <div class="feature-card-desc">Claude reads your conversation history and drafts the perfect reply for every seller. Copy and send in under 10 seconds.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">📊</div>
+        <div class="feature-card-title">Live Dashboard</div>
+        <div class="feature-card-desc">Pipeline value, conversion rates, hot lead alerts, and lead score distribution — all updating in real time as your team works.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">📱</div>
+        <div class="feature-card-title">Outbound SMS Campaigns</div>
+        <div class="feature-card-desc">Blast personalized messages to your BatchLeads lists with built-in DNC scrubbing, batch sending, and auto 90-day drip for non-responders.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🏠</div>
+        <div class="feature-card-title">Property Intelligence</div>
+        <div class="feature-card-desc">Street View auto-loads in every lead profile. AI analyzes property condition and recommends rehab tier with cost estimates by market.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">👥</div>
+        <div class="feature-card-title">Team Roles</div>
+        <div class="feature-card-desc">Owner, Acquisitions, Cold Caller, Read Only — each role sees exactly what they need. Cold callers get a simple intake form, nothing else.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🛡</div>
+        <div class="feature-card-title">DNC Compliance</div>
+        <div class="feature-card-desc">Every list gets scrubbed against federal DNC, state lists, and known litigators before a single message goes out. Fines up to $51k per violation — we protect you.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">💾</div>
+        <div class="feature-card-title">Persistent Pipeline</div>
+        <div class="feature-card-desc">Everything saves to the cloud in real time. Every lead, every conversation, every note — available from any device, any browser, any time.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">📂</div>
+        <div class="feature-card-title">BatchLeads Import</div>
+        <div class="feature-card-desc">Drag your BatchLeads CSV into the app and your entire list imports in seconds — with equity, tax lien, vacancy, and distress signals mapped automatically.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div style="max-width:1200px;margin:0 auto;padding:100px 48px;" id="how-it-works">
+  <div class="section-label">HOW IT WORKS</div>
+  <h2 class="section-title">From list to closed deal</h2>
+  <p class="section-sub" style="margin-bottom:64px;">Four steps to a faster pipeline.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Import your list</div>
+      <div class="step-desc">Upload your BatchLeads CSV. DealIQ maps all fields automatically and scrubs against DNC in seconds.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">AI scores every lead</div>
+      <div class="step-desc">Claude analyzes equity, distress signals, and property condition. Hot leads get flagged so you know exactly who to call first.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Send & track</div>
+      <div class="step-desc">Blast personalized SMS campaigns. Replies auto-classify — interested leads flow into your pipeline automatically.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Close the deal</div>
+      <div class="step-desc">AI drafts every follow-up message. Comps and MAO calculator give you the numbers to make a confident offer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 48px;">
+    <div class="section-label">WHAT THEY SAY</div>
+    <h2 class="section-title" style="margin-bottom:64px;">Real results</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-text">"I used to spend 3 hours a day just managing my pipeline in spreadsheets. DealIQ cut that to 20 minutes and I closed 2 more deals my first month."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:rgba(56,189,248,.15);color:#38BDF8;">M</div>
+          <div><div class="testimonial-name">Marcus T.</div><div class="testimonial-role">Wholesaler · Houston, TX</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"The AI SMS drafting is unreal. It reads the whole conversation and writes exactly what I would have said — but faster and better. My response rate went up 40%."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:rgba(74,222,128,.15);color:#4ADE80;">S</div>
+          <div><div class="testimonial-name">Sarah K.</div><div class="testimonial-role">Realtor · Atlanta, GA</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"The DNC scrubbing alone is worth the subscription. I was terrified of compliance before — now I blast lists confidently knowing we're clean."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:rgba(251,146,60,.15);color:#FB923C;">D</div>
+          <div><div class="testimonial-name">Derek W.</div><div class="testimonial-role">Wholesaler · Dallas, TX</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div style="max-width:1200px;margin:0 auto;padding:100px 48px;" id="pricing">
+  <div class="section-label">PRICING</div>
+  <h2 class="section-title">Simple, honest pricing</h2>
+  <p class="section-sub" style="margin-bottom:64px;">Start free. Upgrade when you're ready to scale.</p>
+  <div class="pricing">
+    <div class="price-card">
+      <div class="price-tier">STARTER</div>
+      <div class="price-amount">$0<span>/mo</span></div>
+      <div class="price-period">Free forever</div>
+      <ul class="price-features">
+        <li>Up to 50 leads</li>
+        <li>Kanban pipeline</li>
+        <li>AI scoring & SMS drafting</li>
+        <li>Street View + condition analysis</li>
+        <li>BatchLeads CSV import</li>
+        <li>1 team member</li>
+      </ul>
+      <button class="price-btn" style="background:#1E293B;color:#CBD5E1;" onclick="openModal('signup')">Get started free</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">MOST POPULAR</div>
+      <div class="price-tier">PRO</div>
+      <div class="price-amount">$97<span>/mo</span></div>
+      <div class="price-period">Per user, billed monthly</div>
+      <ul class="price-features">
+        <li>Unlimited leads</li>
+        <li>Outbound SMS campaigns</li>
+        <li>DNC scrubbing included</li>
+        <li>90-day drip campaigns</li>
+        <li>Comps & MAO calculator</li>
+        <li>Cold caller intake form</li>
+        <li>Up to 3 team members</li>
+        <li>Regional rehab costs</li>
+      </ul>
+      <button class="price-btn" style="background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;font-weight:800;" onclick="openModal('signup')">Start Pro free →</button>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">AGENCY</div>
+      <div class="price-amount">$297<span>/mo</span></div>
+      <div class="price-period">Per team, billed monthly</div>
+      <ul class="price-features">
+        <li>Everything in Pro</li>
+        <li>Unlimited team members</li>
+        <li>Multi-number SMS rotation</li>
+        <li>White-label branding</li>
+        <li>Priority support</li>
+        <li>Custom intake forms</li>
+        <li>API access</li>
+        <li>Dedicated onboarding</li>
+      </ul>
+      <button class="price-btn" style="background:#1E293B;color:#CBD5E1;" onclick="openModal('signup')">Contact sales</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>READY TO CLOSE<br/>MORE DEALS?</h2>
+  <p>Join wholesalers and realtors already using DealIQ to move faster.</p>
+  <button class="btn-hero" onclick="openModal('signup')">Get started free — no card required →</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DEAL<span>IQ</span></div>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://wholesale-iq.vercel.app" target="_blank">Launch App</a>
+  </div>
+  <div class="footer-copy">© 2026 DealIQ. All rights reserved.</div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal" style="display:none;" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:2px;">DEAL<span style="color:#38BDF8;">IQ</span></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="modal-tab active" id="loginTab" onclick="switchTab('login')">Log in</button>
+        <button class="modal-tab" id="signupTab" onclick="switchTab('signup')">Sign up</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <div class="form-group">
+          <label class="form-label">EMAIL</label>
+          <input type="email" class="form-input" id="loginEmail" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">PASSWORD</label>
+          <input type="password" class="form-input" id="loginPassword" placeholder="••••••••"/>
+        </div>
+        <div id="loginMsg"></div>
+        <button class="price-btn" style="background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;font-weight:800;margin-top:16px;width:100%;padding:14px;" onclick="handleLogin()">
+          LOG IN →
+        </button>
+        <div style="text-align:center;margin-top:16px;font-size:13px;color:#475569;">
+          No account? <a href="#" onclick="switchTab('signup')" style="color:#38BDF8;text-decoration:none;">Sign up free</a>
+        </div>
+      </div>
+
+      <!-- SIGNUP -->
+      <div id="signupForm" style="display:none;">
+        <div style="font-size:13px;color:#64748B;margin-bottom:20px;line-height:1.6;">Choose your profile — DealIQ adapts the entire experience to how you work.</div>
+        <div class="profile-select" id="profileSelect">
+          <div class="profile-option" id="opt-wholesaler" onclick="selectProfile('wholesaler')">
+            <div class="profile-option-icon">🏚</div>
+            <div class="profile-option-title">Wholesaler</div>
+            <div class="profile-option-sub">Off-market deals, cash offers</div>
+          </div>
+          <div class="profile-option" id="opt-realtor" onclick="selectProfile('realtor')">
+            <div class="profile-option-icon">🏡</div>
+            <div class="profile-option-title">Realtor</div>
+            <div class="profile-option-sub">Listings, buyers, sphere</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">EMAIL</label>
+          <input type="email" class="form-input" id="signupEmail" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">PASSWORD</label>
+          <input type="password" class="form-input" id="signupPassword" placeholder="Min 8 characters"/>
+        </div>
+        <div id="signupMsg"></div>
+        <button class="price-btn" style="background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;font-weight:800;margin-top:16px;width:100%;padding:14px;" onclick="handleSignup()">
+          CREATE ACCOUNT →
+        </button>
+        <div style="text-align:center;margin-top:16px;font-size:13px;color:#475569;">
+          Already have an account? <a href="#" onclick="switchTab('login')" style="color:#38BDF8;text-decoration:none;">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://jsyzxscinfrfcebiqmja.supabase.co";
+const SUPABASE_KEY = "sb_publishable_KtY55FFvhf5WfSZpO3nSoA_02XnFl1l";
+
+let selectedProfile = "wholesaler";
+
+function openModal(tab) {
+  document.getElementById("authModal").style.display = "flex";
+  switchTab(tab);
+}
+
+function openSignupWithProfile(profile) {
+  selectedProfile = profile;
+  openModal("signup");
+  setTimeout(() => selectProfile(profile), 50);
+}
+
+function closeModal() {
+  document.getElementById("authModal").style.display = "none";
+}
+
+function switchTab(tab) {
+  document.getElementById("loginForm").style.display = tab === "login" ? "block" : "none";
+  document.getElementById("signupForm").style.display = tab === "signup" ? "block" : "none";
+  document.getElementById("loginTab").className = "modal-tab" + (tab === "login" ? " active" : "");
+  document.getElementById("signupTab").className = "modal-tab" + (tab === "signup" ? " active" : "");
+}
+
+function selectProfile(p) {
+  selectedProfile = p;
+  document.getElementById("opt-wholesaler").className = "profile-option" + (p === "wholesaler" ? " selected-w" : "");
+  document.getElementById("opt-realtor").className = "profile-option" + (p === "realtor" ? " selected-r" : "");
+}
+
+async function supabaseFetch(path, body) {
+  const res = await fetch(SUPABASE_URL + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY },
+    body: JSON.stringify(body)
+  });
+  return res.json();
+}
+
+async function handleLogin() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const msg = document.getElementById("loginMsg");
+  if (!email || !password) { msg.innerHTML = '<div class="form-error">Email and password required.</div>'; return; }
+  msg.innerHTML = '<div style="color:#38BDF8;font-size:13px;">Logging in...</div>';
+  try {
+    const data = await supabaseFetch("/auth/v1/token?grant_type=password", { email, password });
+    if (data.error) { msg.innerHTML = '<div class="form-error">' + data.error_description + '</div>'; return; }
+    msg.innerHTML = '<div class="form-success">✓ Logged in — redirecting...</div>';
+    setTimeout(() => { window.location.href = "https://wholesale-iq.vercel.app"; }, 800);
+  } catch(e) { msg.innerHTML = '<div class="form-error">Error: ' + e.message + '</div>'; }
+}
+
+async function handleSignup() {
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value;
+  const msg = document.getElementById("signupMsg");
+  if (!selectedProfile) { msg.innerHTML = '<div class="form-error">Please select Wholesaler or Realtor.</div>'; return; }
+  if (!email || !password) { msg.innerHTML = '<div class="form-error">Email and password required.</div>'; return; }
+  if (password.length < 8) { msg.innerHTML = '<div class="form-error">Password must be at least 8 characters.</div>'; return; }
+  msg.innerHTML = '<div style="color:#38BDF8;font-size:13px;">Creating account...</div>';
+  try {
+    const data = await supabaseFetch("/auth/v1/signup", {
+      email, password,
+      data: { profile: selectedProfile }
+    });
+    if (data.error) { msg.innerHTML = '<div class="form-error">' + data.error_description + '</div>'; return; }
+    msg.innerHTML = '<div class="form-success">✓ Account created! Check your email to confirm, then log in.</div>';
+  } catch(e) { msg.innerHTML = '<div class="form-error">Error: ' + e.message + '</div>'; }
+}
+
+selectProfile("wholesaler");
+</script>
+</body>
+</html>
