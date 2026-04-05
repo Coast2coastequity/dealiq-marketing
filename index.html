@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>DealIQ — Smart CRM for Real Estate Professionals</title>
+<title>WholesaleIQ — AI-Powered CRM for Real Estate Wholesalers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -171,9 +171,9 @@ footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-cont
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-badge">⚡ AI-POWERED REAL ESTATE CRM</div>
+  <div class="hero-badge">⚡ AI-POWERED WHOLESALING CRM</div>
   <h1>CLOSE MORE<br/><span>DEALS</span><br/>FASTER</h1>
-  <p>The only CRM built specifically for wholesalers and realtors — with AI that scores leads, drafts messages, and tells you exactly who to call next.</p>
+  <p>The only CRM built specifically for real estate wholesalers — with AI that scores leads, drafts messages, and tells you exactly who to call next.</p>
   <div class="hero-cta">
     <button class="btn-hero" onclick="openModal('signup')">Start free today →</button>
     <button class="btn-hero-ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">See how it works</button>
@@ -186,40 +186,45 @@ footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-cont
   </div>
 </section>
 
-<!-- PROFILES -->
+<!-- WHOLESALER FEATURES -->
 <div style="max-width:1200px;margin:0 auto;padding:0 48px 100px;" id="features">
-  <div class="section-label">BUILT FOR YOU</div>
-  <h2 class="section-title" style="margin-bottom:16px;">Pick your path</h2>
-  <p class="section-sub">DealIQ adapts to how you work. Same powerful platform, two different experiences.</p>
-  <div class="profiles">
-    <div class="profile-card wholesaler">
-      <div class="profile-icon">🏚</div>
-      <div class="profile-title" style="color:#38BDF8;">WHOLESALER</div>
-      <div class="profile-sub">Find distressed properties, build your cash buyer list, and close deals fast — with AI doing the heavy lifting.</div>
-      <div class="feature-list">
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>AI scores leads by equity, tax lien, vacancy & distress</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>MAO calculator — ARV × 70% minus real rehab costs</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Outbound SMS with DNC scrubbing & drip campaigns</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Cold caller intake form — leads flow in automatically</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>Street View auto-loads in every lead profile</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#38BDF8;"></div>AI drafts personalized SMS for every seller conversation</div>
-      </div>
-      <button class="profile-btn" style="background:linear-gradient(135deg,#38BDF8,#0284C7);color:#080D14;" onclick="openSignupWithProfile('wholesaler')">Start as Wholesaler →</button>
+  <div class="section-label">BUILT FOR WHOLESALERS</div>
+  <h2 class="section-title" style="margin-bottom:16px;">Everything you need to<br/><span style="background:linear-gradient(135deg,#38BDF8,#0284C7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">close more deals</span></h2>
+  <p class="section-sub">Find distressed properties, build your cash buyer list, and close deals fast — with AI doing the heavy lifting.</p>
+  <div style="background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:16px;padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;">
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">🎯</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">AI Lead Scoring</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">Scores every lead by equity, tax lien, vacancy & distress signals. Know exactly who to call first.</div>
     </div>
-    <div class="profile-card realtor">
-      <div class="profile-icon">🏡</div>
-      <div class="profile-title" style="color:#4ADE80;">REALTOR</div>
-      <div class="profile-sub">Manage your listings pipeline, nurture your sphere of influence, and never let a hot lead go cold again.</div>
-      <div class="feature-list">
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Listing pipeline — New → Showing → Offer → Closed</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>AI scores leads by motivation, timeline & price sensitivity</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Comps panel with AI list price recommendation</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Sphere of influence drip campaigns</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>Open house follow-up sequences</div>
-        <div class="feature-item"><div class="feature-dot" style="background:#4ADE80;"></div>GCI tracker and commission pipeline dashboard</div>
-      </div>
-      <button class="profile-btn" style="background:linear-gradient(135deg,#4ADE80,#16A34A);color:#080D14;" onclick="openSignupWithProfile('realtor')">Start as Realtor →</button>
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">🧮</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">MAO Calculator</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">ARV × 70% minus real rehab costs by market. Make confident offers backed by data, not guesswork.</div>
     </div>
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">📱</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Outbound SMS + DNC</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">Blast personalized campaigns to your BatchLeads lists with built-in DNC scrubbing and 90-day drip.</div>
+    </div>
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">📋</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Cold Caller Intake</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">Callers submit leads through a simple form. Leads flow directly into your pipeline automatically.</div>
+    </div>
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">🏚</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Street View + Condition AI</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">Street View auto-loads in every lead profile. AI recommends rehab tier and cost estimates by market.</div>
+    </div>
+    <div>
+      <div style="font-size:28px;margin-bottom:12px;">💬</div>
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">AI SMS Drafting</div>
+      <div style="font-size:14px;color:var(--text4);line-height:1.65;">Claude reads your conversation history and drafts the perfect seller reply. Copy and send in 10 seconds.</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <button class="btn-hero" onclick="openModal('signup')">Start free today →</button>
   </div>
 </div>
 
@@ -323,8 +328,8 @@ footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-cont
       <div class="testimonial">
         <div class="testimonial-text">"The AI SMS drafting is unreal. It reads the whole conversation and writes exactly what I would have said — but faster and better. My response rate went up 40%."</div>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:rgba(74,222,128,.15);color:#4ADE80;">S</div>
-          <div><div class="testimonial-name">Sarah K.</div><div class="testimonial-role">Realtor · Atlanta, GA</div></div>
+          <div class="testimonial-avatar" style="background:rgba(56,189,248,.15);color:#38BDF8;">J</div>
+          <div><div class="testimonial-name">James R.</div><div class="testimonial-role">Wholesaler · Chicago, IL</div></div>
         </div>
       </div>
       <div class="testimonial">
@@ -397,7 +402,7 @@ footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-cont
 <!-- CTA BANNER -->
 <div class="cta-banner">
   <h2>READY TO CLOSE<br/>MORE DEALS?</h2>
-  <p>Join wholesalers and realtors already using DealIQ to move faster.</p>
+  <p>Join wholesalers already using WholesaleIQ to move faster.</p>
   <button class="btn-hero" onclick="openModal('signup')">Get started free — no card required →</button>
 </div>
 
@@ -446,19 +451,7 @@ footer{border-top:1px solid var(--border);padding:48px;display:flex;justify-cont
 
       <!-- SIGNUP -->
       <div id="signupForm" style="display:none;">
-        <div style="font-size:13px;color:#64748B;margin-bottom:20px;line-height:1.6;">Choose your profile — DealIQ adapts the entire experience to how you work.</div>
-        <div class="profile-select" id="profileSelect">
-          <div class="profile-option" id="opt-wholesaler" onclick="selectProfile('wholesaler')">
-            <div class="profile-option-icon">🏚</div>
-            <div class="profile-option-title">Wholesaler</div>
-            <div class="profile-option-sub">Off-market deals, cash offers</div>
-          </div>
-          <div class="profile-option" id="opt-realtor" onclick="selectProfile('realtor')">
-            <div class="profile-option-icon">🏡</div>
-            <div class="profile-option-title">Realtor</div>
-            <div class="profile-option-sub">Listings, buyers, sphere</div>
-          </div>
-        </div>
+        <div style="font-size:13px;color:#64748B;margin-bottom:20px;line-height:1.6;">Create your free WholesaleIQ account and start closing more deals today.</div>
         <div class="form-group">
           <label class="form-label">EMAIL</label>
           <input type="email" class="form-input" id="signupEmail" placeholder="you@example.com"/>
@@ -509,8 +502,6 @@ function switchTab(tab) {
 
 function selectProfile(p) {
   selectedProfile = p;
-  document.getElementById("opt-wholesaler").className = "profile-option" + (p === "wholesaler" ? " selected-w" : "");
-  document.getElementById("opt-realtor").className = "profile-option" + (p === "realtor" ? " selected-r" : "");
 }
 
 async function supabaseFetch(path, body) {
@@ -540,7 +531,7 @@ async function handleSignup() {
   const email = document.getElementById("signupEmail").value.trim();
   const password = document.getElementById("signupPassword").value;
   const msg = document.getElementById("signupMsg");
-  if (!selectedProfile) { msg.innerHTML = '<div class="form-error">Please select Wholesaler or Realtor.</div>'; return; }
+  
   if (!email || !password) { msg.innerHTML = '<div class="form-error">Email and password required.</div>'; return; }
   if (password.length < 8) { msg.innerHTML = '<div class="form-error">Password must be at least 8 characters.</div>'; return; }
   msg.innerHTML = '<div style="color:#38BDF8;font-size:13px;">Creating account...</div>';
